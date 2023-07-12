@@ -134,7 +134,7 @@ def simple_loop(
   for i in range(num_steps):
     x, _ = step(x, t_args[i])
     y.append(x)
-  return jax.tree_multimap(lambda *args: jnp.stack(args, axis=0), *y)
+  return jax.tree_map(lambda *args: jnp.stack(args, axis=0), *y)
 
 
 def hsv2rgb(array: jnp.ndarray) -> jnp.ndarray:
